@@ -66,3 +66,31 @@ Run the fuzzer.py script using python:
 The fuzzer will send increasingly long strings comprised of As (up to 3000). If the fuzzer crashes the server with one of the strings, you should see an error like: "Could not connect to MACHINE_IP:1337". Make a note of the largest number of bytes that were sent.
 
    <h4>Crash Replication & Controlling EIP</h4>
+   
+Create another file on your Kali box called exploit.py with the following contents:[Link]()
+
+Run the following command to generate a cyclic pattern of a length 400 bytes longer that the string that crashed the server (change the -l value to this):
+
+    ✅ /usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 600
+
+Copy the output and place it into the payload variable of the exploit.py script.
+
+On Windows, in Immunity Debugger, re-open the oscp.exe again using the same method as before, and click the red play icon to get it running. You will have to do this prior to each time we run the exploit.py (which we will run multiple times with incremental modifications).
+
+On Kali, run the modified exploit.py script:
+
+    ✅ python exploit.py
+
+The script should crash the oscp.exe server again. This time, in Immunity Debugger, in the command input box at the bottom of the screen, run the following mona command, changing the distance to the same length as the pattern you created:
+
+    ✅ !mona findmsp -distance 600
+
+Mona should display a log window with the output of the command. If not, click the "Window" menu and then "Log data" to view it (choose "CPU" to switch back to the standard view).
+
+In this output you should see a line which states:
+
+    ✅ EIP contains normal pattern : ... (offset XXXX)
+
+
+
+
