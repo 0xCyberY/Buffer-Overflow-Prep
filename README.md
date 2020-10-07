@@ -55,7 +55,14 @@ The mona script has been preinstalled, however to make it easier to work with, y
     ✅ !mona config -set workingfolder c:\mona\%p
 
 
-   <h4> Fuzzing</h4>
+   <h4>Fuzzing</h4>
    
-Create a file on your Kali box called fuzzer.py with the following contents:
+Create a file on your Kali box called fuzzer.py with the following contents:[Link]()
 
+Run the fuzzer.py script using python: 
+
+    ✅ python fuzzer.py
+
+The fuzzer will send increasingly long strings comprised of As (up to 3000). If the fuzzer crashes the server with one of the strings, you should see an error like: "Could not connect to MACHINE_IP:1337". Make a note of the largest number of bytes that were sent.
+
+   <h4>Crash Replication & Controlling EIP</h4>
