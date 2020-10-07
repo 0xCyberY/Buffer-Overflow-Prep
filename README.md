@@ -13,3 +13,7 @@ You can log onto the machine using RDP with the following credentials: admin/pas
 I suggest using the xfreerdp command: 
 
     ✅ xfreerdp /u:admin /p:password /cert:ignore /v:MACHINE_IP
+
+For full screen you can use /workarea : Use available work area. So you will see properly and in a comfortable way as the size is small in Immunity Debugger.
+
+    ✅ xfreerdp /u:admin /p:password /cert:ignore /v:MACHINE_IP /workarea
