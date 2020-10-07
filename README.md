@@ -34,3 +34,20 @@ Please note that this room does not teach buffer overflows from scratch. It is i
 Thanks go to [@Mojodojo_101](https://twitter.com/Mojodojo_101) for helping create the custom oscp.exe binary for this room!
 
 
+   <h3>[Task 2] oscp.exe - OVERFLOW1</h3>
+   
+Right-click the Immunity Debugger icon on the Desktop and choose "Run as administrator".
+
+When Immunity loads, click the open file icon, or choose File -> Open. Navigate to the vulnerable-apps folder on the admin user's desktop, and then the "oscp" folder. Select the "oscp" (oscp.exe) binary and click "Open".
+
+The binary will open in a "paused" state, so click the red play icon or choose Debug -> Run. In a terminal window, the oscp.exe binary should be running, and tells us that it is listening on port 1337.
+
+On your Kali box, connect to port 1337 on MACHINE_IP using netcat:
+
+    ✅ nc MACHINE_IP 1337
+
+Type "HELP" and press Enter. Note that there are 10 different OVERFLOW commands numbered 1 - 10. Type "OVERFLOW1 test" and press enter. The response should be "OVERFLOW1 COMPLETE". Terminate the connection.
+
+Mona Configuration
+
+The mona script has been preinstalled, however to make it easier to work with, you should configure a working folder using the following command, which you can run in the command input box at the bottom of the Immunity Debugger window:
