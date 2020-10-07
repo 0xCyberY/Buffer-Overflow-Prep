@@ -145,6 +145,12 @@ Since an encoder was likely used to generate the payload, you will need some spa
     ✅ padding = "\x90" * 16
 
 
+   <h4>Exploit!</h4>
 
+With the correct prefix, offset, return address, padding, and payload set, you can now exploit the buffer overflow to get a reverse shell.
+
+Start a netcat listener on your Kali box using the LPORT you specified in the msfvenom command (4444 if you didn't change it).
+
+Restart oscp.exe in Immunity and run the modified exploit.py script again. Your netcat listener should catch a reverse shell!
 
 
