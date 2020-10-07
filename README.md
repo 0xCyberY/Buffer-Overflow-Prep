@@ -31,4 +31,6 @@ I have also written a handy guide to exploiting buffer overflows with the help o
 
 Please note that this room does not teach buffer overflows from scratch. It is intended to help OSCP students and also bring to their attention some features of mona which will save time in the OSCP exam.
 
-Thanks go to @Mojodojo_101 for helping create the custom oscp.exe binary for this room!
+Thanks go to [@Mojodojo_101](https://twitter.com/Mojodojo_101) for helping create the custom oscp.exe binary for this room!
+
+
