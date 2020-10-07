@@ -48,7 +48,7 @@ On your Kali box, connect to port 1337 on MACHINE_IP using netcat:
 
 Type "HELP" and press Enter. Note that there are 10 different OVERFLOW commands numbered 1 - 10. Type "OVERFLOW1 test" and press enter. The response should be "OVERFLOW1 COMPLETE". Terminate the connection.
 
-Mona Configuration
+   <h4>Mona Configuration</h4>
 
 The mona script has been preinstalled, however to make it easier to work with, you should configure a working folder using the following command, which you can run in the command input box at the bottom of the Immunity Debugger window:
 
