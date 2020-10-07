@@ -51,3 +51,11 @@ Type "HELP" and press Enter. Note that there are 10 different OVERFLOW commands 
 Mona Configuration
 
 The mona script has been preinstalled, however to make it easier to work with, you should configure a working folder using the following command, which you can run in the command input box at the bottom of the Immunity Debugger window:
+
+    ✅ !mona config -set workingfolder c:\mona\%p
+
+
+   <h4> Fuzzing</h4>
+   
+Create a file on your Kali box called fuzzer.py with the following contents:
+
